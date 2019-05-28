@@ -70,12 +70,14 @@ export default class App extends React.Component {
     const max = "375";
     const bpm = this.state.tempo;
     const buttonText = this.state.isTicking === true ? "Stop" : "Start";
+    const imagePath = "/images/" + (this.state.count % 2 === 0 ? "metronomeright" : "metronomeleft") + ".png";
 
     return (
       <div className="middleOfSuper content">
         <input id="bpmLabel" type="text" value={bpm} onChange={this.handleBPMChange} /> <label> BPM </label> <br />
         <input id="bpmSlider" type="range" value={bpm} min={min} max={max} onChange={this.handleBPMChange} /><br />
-        <button onClick={this.handleStartStopButton} id="startButton"> {buttonText} </button>
+        <button onClick={this.handleStartStopButton} id="startButton"> {buttonText} </button><br />
+        <img id="metronomeImage" src={imagePath} alt="metronome"></img>
       </div>
     )
   }
